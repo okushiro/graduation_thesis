@@ -1,0 +1,132 @@
+\documentclass[dvipdfmx,11pt]{beamer}
+\usepackage{float}
+\usepackage{pxjahyper}
+\usepackage{minijs,amsmath,comment}
+\renewcommand{\kanjifamilydefault}{\gtdefault}
+\usetheme{Antibes}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footline}[page number]
+
+\title{ゼミについて}
+\author{明治大学数学科3年　宮部研究室　奥城健太郎}
+\institute{宮部研究室3年生歓迎会}
+\date{2017年9月23日}
+
+\begin{document}
+
+\begin{frame}
+\frametitle{}
+\titlepage
+\end{frame}
+
+\begin{frame}
+\frametitle{目次}
+\begin{itemize}
+ \item 今後のゼミの予定
+ \item ゼミの種類について
+ \item ゼミの準備について
+ \item まとめ
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{今後のゼミの予定}
+3年秋　ゼミナールB
+4年春　卒業研究1
+4年秋　卒業研究2
+\end{frame}
+
+\begin{frame}
+ゼミナールBは卒業研究のための準備期間
+\end{frame}
+
+\begin{frame}
+\frametitle{ゼミの準備について}
+秘書問題とは,
+\begin{enumerate}
+ \item<2-> 秘書を一人雇いたい.
+ \item<3-> n人が応募してきている. nは既知とする.
+ \item<4-> 応募者には重複無く順位が付けられる.
+ \item<5-> 無作為に面接を行う.
+ \item<6-> 毎回の面接の後,採用するかどうかをその場で決定する.
+ \item<7-> その応募者を採用するかどうかは,それまでの相対的順位のみによって決定する.
+ \item<8-> 不採用にしたら後から採用することはできない.
+ \item<9-> 最も良い応募者を選ぶ確率を高くするにはどうすれば良いか.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+\begin{block}{戦略}
+最初のｒ人は不採用とする.
+
+その後の面接者の中で,それまでの応募者の中で最も良ければ採用する.
+\end{block}
+
+\begin{quote}
+最善の応募者を選択できる確率を求めたい.
+
+求める確率が最も高くなるようなrは？
+
+また,そのときの確率は？
+\end{quote}
+\end{frame}
+
+\begin{frame}
+最善の応募者がi番目にいる確率は$ \frac{1}{n} $.　$ (r+1 \leq i \leq n) $
+
+$i-1$番目までの人の中で最高の順位の人が
+
+r番目までにいる確率は$ \frac{r}{i-1} $
+
+よって,求める確率を$p(r)$とすると,
+\[ p(r) = \sum_{i=r+1}^n \frac{1}{n} \frac{r}{i-1} \]
+である.
+
+\end{frame}
+
+\begin{frame}
+$ x= \frac{r}{n} $とすると,
+\begin{align*}
+p(r) &= \sum_{i=r+1}^n \left( \frac{1}{n} \cdot \frac{nx}{i-1} \right)  \\
+      &= \sum_{i=r+1}^n \left( \frac{x}{n} \cdot \frac{1}{\frac{i-1}{n}} \right)  \\
+      &= \frac{x}{n} \left( \frac{1}{\frac{r}{n}} + \frac{1}{\frac{r+1}{n}} + \ldots + \frac{1}{\frac{n-1}{n}} \right)
+\end{align*}
+nが十分大きいとき,区分求積法を用いて,
+\[ p(r) \to x \int_{\frac{r}{n}}^{1} \frac{dt}{t} = -x \log x \]
+\end{frame}
+
+\begin{frame}
+\[ g(x) = -x \log x \]
+とすると,これが最大となるようなxは,
+\[ g'(x) = -\log x-1 = 0 \]
+を解いて$ x = \frac{1}{e} $.
+
+$ x = \frac{r}{n} $なので,　$ r = \frac{n}{e} $
+
+このとき,最善の応募者を選択できる確率は,
+\[ g \left( \frac{1}{e} \right) = \frac{1}{e} \]
+\end{frame}
+
+\begin{frame}
+最も良い応募者を選択するには,
+\begin{itemize}
+ \item 最初の37％の人をすべて不採用にする.
+ \item その後の面接者の中で,それまでの応募者の中で最も良ければ採用する.
+ \item この戦略が成功する確率は37％である.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{今後の予定}
+\begin{itemize}
+ \item 統計の基礎的な部分を学習する.
+ \item 統計に関する卒業研究を行う.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{参考文献}
+宮部研究室ゼミナールB講義録
+\end{frame}
+
+\end{document}
